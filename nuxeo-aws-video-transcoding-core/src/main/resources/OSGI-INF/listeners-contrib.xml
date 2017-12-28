@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.labs.aws.video.transcoding.listeners">
+
+  <require>org.nuxeo.platform.video.core.listeners</require>
+
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
+
+    <listener name="videoAWSConversionListener"
+              class="org.nuxeo.labs.aws.video.transcoding.listeners.VideoChangedListener"
+              async="true" postCommit="true" priority="20">
+        <event>videoChanged</event>
+    </listener>
+
+    <listener name="lambdaVideoSuccessListener"
+              async="false"
+              postCommit="false"
+              class="org.nuxeo.labs.aws.video.transcoding.listeners.VideoConversionSuccessListener"
+              priority="20">
+      <event>lambdaVideoSuccess</event>
+    </listener>
+
+    <listener name="lambdaVideoFailedListener"
+              async="false"
+              postCommit="false"
+              class="org.nuxeo.labs.aws.video.transcoding.listeners.VideoConversionErrorListener"
+              priority="20">
+      <event>lambdaVideoFailed</event>
+    </listener>
+
+    <listener name="videoAutomaticConversions"
+            class="org.nuxeo.ecm.platform.video.listener.VideoAutomaticConversionListener"
+            enabled="false"/>
+
+    <listener name="videoStoryboardListener"
+            class="org.nuxeo.ecm.platform.video.listener.VideoStoryboardListener"
+            enabled="false"/>
+
+  </extension>
+</component>

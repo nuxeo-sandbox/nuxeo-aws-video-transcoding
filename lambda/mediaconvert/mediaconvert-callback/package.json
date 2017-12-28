@@ -1,0 +1,13 @@
+{
+  "name": "mediaconvert-callback",
+  "version": "1.0.0",
+  "description": "Callback function to notify Nuxeo that a conversion job is finished",
+  "main": "index.js",
+  "author": "Andrei Nechaev",
+  "contributors": ["Andrei Nechaev","Michael Vachette"],
+  "license": "GPL",
+  "dependencies": {
+    "aws-sdk": "^2.45.0",
+    "request": "^2.81.0"
+  }
+}

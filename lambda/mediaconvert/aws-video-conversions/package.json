@@ -1,0 +1,12 @@
+{
+  "name": "aws-video-conversion",
+  "version": "1.0.0",
+  "description": "Queue a new mediaconvert job",
+  "main": "index.js",
+  "author": "Andrei Nechaev",
+  "contributors": ["Andrei Nechaev","Michael Vachette"],
+  "license": "GPL",
+  "dependencies": {
+    "aws-sdk": "^2.45.0"
+  }
+}

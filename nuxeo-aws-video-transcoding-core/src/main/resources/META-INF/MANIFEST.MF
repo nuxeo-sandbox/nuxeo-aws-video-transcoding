@@ -1,0 +1,10 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: org.nuxeo.labs.aws.video.transcoding
+Bundle-Version: 1.0.0
+Bundle-Name: nuxeo-aws-video-transcoding-core
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: nuxeo-aws-video-transcoding-core;singleton=true
+Nuxeo-Component: OSGI-INF/listeners-contrib.xml,
+    OSGI-INF/lambda-config-contrib.xml

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.labs.aws.video.transcoding.lambda.config">
+
+    <extension target="org.nuxeo.lambda.core.LambdaService" point="lambdaConfiguration">
+        <lambdaConfigs name="aws-video-conversions" class="org.nuxeo.lambda.aws.AWSLambdaCaller">
+            <onSuccessEvent>lambdaVideoSuccess</onSuccessEvent>
+            <onErrorEvent>lambdaVideoFailed</onErrorEvent>
+        </lambdaConfigs>
+    </extension>
+
+</component>
