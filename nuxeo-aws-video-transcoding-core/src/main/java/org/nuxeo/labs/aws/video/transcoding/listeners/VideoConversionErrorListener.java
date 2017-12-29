@@ -22,10 +22,19 @@ package org.nuxeo.labs.aws.video.transcoding.listeners;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 import org.nuxeo.ecm.core.api.NuxeoException;
 import org.nuxeo.ecm.core.event.Event;
 import org.nuxeo.ecm.core.event.EventBundle;
+import org.nuxeo.ecm.core.event.EventContext;
 import org.nuxeo.ecm.core.event.PostCommitEventListener;
+
+import java.io.Serializable;
+import java.util.Map;
+
+import static org.nuxeo.lambda.core.LambdaService.LAMBDA_RESPONSE_KEY;
+import static org.nuxeo.lambda.core.LambdaService.PARAMETERS_KEY;
 
 public class VideoConversionErrorListener implements PostCommitEventListener {
 
@@ -41,7 +50,19 @@ public class VideoConversionErrorListener implements PostCommitEventListener {
     }
 
     private void handleEvent(Event event) {
-        //todo
-        throw new NuxeoException("error");
+        EventContext ctx = event.getContext();
+        if (ctx != null && ctx.getProperty(PARAMETERS_KEY) != null) {
+            Map<String, Serializable> params = (Map<String, Serializable>) ctx.getProperty(PARAMETERS_KEY);
+            final String docId = (String) params.get("docId");
+            JSONObject object = (JSONObject) ctx.getProperty(LAMBDA_RESPONSE_KEY);
+            try {
+                JSONObject error = object.getJSONObject("error");
+                log.warn("AWS Video Conversion Failed for "+docId+" :"+error);
+            } catch (JSONException e) {
+                throw new NuxeoException(e);
+            }
+        } else {
+            throw new NuxeoException("Lambda callback error with a message");
+        }
     }
 }
