@@ -35,15 +35,13 @@ import org.nuxeo.ecm.core.blob.BlobProvider;
 import org.nuxeo.ecm.core.work.AbstractWork;
 import org.nuxeo.ecm.platform.mimetype.interfaces.MimetypeRegistry;
 import org.nuxeo.ecm.platform.video.TranscodedVideo;
+import org.nuxeo.ecm.platform.video.VideoHelper;
 import org.nuxeo.ecm.platform.video.VideoInfo;
 import org.nuxeo.runtime.api.Framework;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class VideoConversionIngestWork extends AbstractWork {
@@ -88,7 +86,19 @@ public class VideoConversionIngestWork extends AbstractWork {
             }
         }
 
+        Collections.sort(transcodedVideos, (left, right) -> (int)((Long)left.get("height") - (Long)right.get("height")));
         doc.setPropertyValue("vid:transcodedVideos", (Serializable) transcodedVideos);
+        session.saveDocument(doc);
+
+        // compute storyboard and preview from lowest resolution transcoded video
+        Blob renditionBlob = (Blob) transcodedVideos.get(0).get("content");
+        VideoHelper.updateStoryboard(doc, renditionBlob);
+        try {
+            VideoHelper.updatePreviews(doc, renditionBlob);
+        } catch (IOException e) {
+            log.error(e);
+        }
+
         session.saveDocument(doc);
         commitOrRollbackTransaction();
         setStatus("Done");
