@@ -20,6 +20,7 @@
   </modules>
 
   <properties>
+    <nuxeo.version>9.10</nuxeo.version>
     <nuxeo.amazon.s3.version>1.8.3</nuxeo.amazon.s3.version>
     <nuxeo.dam.nxr.version>6.3.3</nuxeo.dam.nxr.version>
   </properties>

@@ -34,17 +34,17 @@
     <dependency>
       <groupId>org.nuxeo.lambda</groupId>
       <artifactId>nuxeo-lambda-core</artifactId>
-      <version>${project.version}</version>
+      <version>${nuxeo.version}</version>
     </dependency>
     <dependency>
       <groupId>org.nuxeo.lambda</groupId>
       <artifactId>nuxeo-lambda-endpoint</artifactId>
-      <version>${project.version}</version>
+      <version>${nuxeo.version}</version>
     </dependency>
     <dependency>
       <groupId>org.nuxeo.lambda</groupId>
       <artifactId>nuxeo-lambda-aws</artifactId>
-      <version>${project.version}</version>
+      <version>${nuxeo.version}</version>
     </dependency>
 
     <dependency>
