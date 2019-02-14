@@ -153,7 +153,7 @@ function callREST(meta, host, cb, success=true, error=null) {
             headers: {
                 'Content-Type': 'application/json'
             }
-        }, function (err, response, _) {
+        }, function (err, response) {
             if (err) {
                 console.log('Error on callREST', err);
                 reject(err);

@@ -4,12 +4,12 @@
   <parent>
     <groupId>org.nuxeo.ecm.distribution</groupId>
     <artifactId>nuxeo-distribution</artifactId>
-    <version>9.10</version>
+    <version>10.10</version>
   </parent>
 
   <groupId>org.nuxeo.labs.aws.video.transcoding</groupId>
   <artifactId>nuxeo-aws-video-transcoding-parent</artifactId>
-  <version>9.10-SNAPSHOT</version>
+  <version>10.10-SNAPSHOT</version>
   <name>Nuxeo aws video transcoding parent</name>
   <description/>
   <packaging>pom</packaging>
@@ -20,9 +20,9 @@
   </modules>
 
   <properties>
-    <nuxeo.lambda.version>9.10</nuxeo.lambda.version>
-    <nuxeo.amazon.s3.version>1.8.3</nuxeo.amazon.s3.version>
-    <nuxeo.dam.nxr.version>6.3.3</nuxeo.dam.nxr.version>
+    <nuxeo.lambda.version>10.10</nuxeo.lambda.version>
+    <nuxeo.amazon.s3.version>1.9.3</nuxeo.amazon.s3.version>
+    <nuxeo.dam.nxr.version>6.4.3</nuxeo.dam.nxr.version>
   </properties>
 
   <repositories>

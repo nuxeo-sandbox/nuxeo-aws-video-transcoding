@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.nuxeo.labs.aws.video.transcoding</groupId>
     <artifactId>nuxeo-aws-video-transcoding-parent</artifactId>
-    <version>9.10-SNAPSHOT</version>
+    <version>10.10-SNAPSHOT</version>
   </parent>
   <artifactId>nuxeo-aws-video-transcoding-core</artifactId>
   <name>Nuxeo AWS Video Transcoding Core</name>
@@ -30,7 +30,6 @@
       <groupId>org.nuxeo.ecm.core</groupId>
       <artifactId>nuxeo-core-binarymanager-s3</artifactId>
     </dependency>
-
     <dependency>
       <groupId>org.nuxeo.lambda</groupId>
       <artifactId>nuxeo-lambda-core</artifactId>

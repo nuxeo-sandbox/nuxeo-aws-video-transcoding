@@ -1,0 +1,11 @@
+<component name="org.nuxeo.labs.aws.video.transcoding.VideoService">
+
+    <require>org.nuxeo.ecm.platform.video.service.VideoService</require>
+
+    <implementation  class="org.nuxeo.labs.aws.video.transcoding.service.MediaConvertVideoService" />
+
+    <service>
+        <provide interface="org.nuxeo.ecm.platform.video.service.VideoService" />
+    </service>
+
+</component>
