@@ -1,11 +1,10 @@
-<!-- See documentation at http://doc.nuxeo.com/x/HgIz -->
 <package type="addon" name="nuxeo-aws-video-transcoding" version="@VERSION@">
-  <title>Nuxeo aws video transcoding</title>
+  <title>Nuxeo AWS Elemental MediaConvert</title>
   <description>
-    <p>Put here an HTML description of your Nuxeo Package.</p>
+    <p>Use AWS Mediaconvert to transcode video files in the Nuxeo Platform</p>
   </description>
-  <!-- <home-page>http://doc.nuxeo.com/</home-page> -->
-  <vendor>nuxeo</vendor>
+  <home-page>https://github.com/nuxeo-sandbox/nuxeo-aws-video-transcoding</home-page>
+  <vendor>Nuxeo</vendor>
   <installer restart="true" />
   <uninstaller restart="true" />
   <!-- <hotreload-support>false</hotreload-support> -->
@@ -38,5 +37,5 @@
   <license>Apache License, Version 2.0</license>
   <license-url>http://www.apache.org/licenses/LICENSE-2.0</license-url>
   <!-- Visibility: PRIVATE | MARKETPLACE | DEV | PUBLIC -->
-  <visibility>DEV</visibility>
+  <visibility>PUBLIC</visibility>
 </package>
